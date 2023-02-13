@@ -26,7 +26,10 @@ article img{
     height: 48px;
     border-radius: 1000px;
 }
-
+.tw--seguido{
+    opacity: .8;
+    width: 140px;   
+}
 .tw--sinseguir {
     cursor: pointer;
     margin-left: 16px;
@@ -35,9 +38,13 @@ article img{
     padding: 6px 16px;
     font-weight: bold;
     transition: .3s ease background-color;
+    width: 140px;
 }
 .tw--sinseguir .tw--seguido{
-    border: 1px solid red;    
+    border: 1px solid #bbb;
+    background: transparent;    
+    color: #fff;
+    
 }
 
 .tw--sinseguir:hover{
@@ -45,5 +52,24 @@ article img{
 }
 
 .tw--seguido:hover{
-    background: red;
+    background: rgb(255, 0, 0, 0.178);
+    color: red;
+    border: 1px solid red;
+    transition: .3s ease all;
+}
+
+.followText{
+    display: block;
+}
+
+.tw--seguido:hover .followText{
+    display: none;
+}
+
+.tw--seguido:hover .notFollow{
+    display: block;
+}
+
+.notFollow{
+    display: none;
 }

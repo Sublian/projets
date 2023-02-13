@@ -1,7 +1,7 @@
 import { useState } from "react"
 
-export function TwitterFollowCard ({ userName, name }){
-    const [isFollowing, setIsFollowing] = useState(false)        
+export function TwitterFollowCard ({ userName, name, initialIsFollowing }){
+    const [isFollowing, setIsFollowing] = useState(initialIsFollowing)        
     
     //const imageSrc =("https://unavatar.io/${userName}")
     const texto = isFollowing ? 'Siguiendo' : 'Seguir'
@@ -17,8 +17,10 @@ export function TwitterFollowCard ({ userName, name }){
                 {
                 console.log({userName})
                 }
-                <img alt= 'No se carga la imagen'
-                src= { 'https://unavatar.io/{userName}' }  />
+                <img 
+                alt= 'No se carga la imagen!!!'
+                src= {'https://unavatar.io/${userName}'}
+                key= {'https://unavatar.io/${userName}'} />
                 <div>
                     <strong>{name}</strong>
                     <span>@{userName}</span>
@@ -27,8 +29,9 @@ export function TwitterFollowCard ({ userName, name }){
 
             <aside>
                 <button className={buttonClassName} onClick={handleClick}>
-                    {texto}
-                </button>
+                <span className="followText">{texto}</span>
+                <span className="notFollow">Dejar de seguir </span>
+                    </button>
             </aside>
         </article>
     )
