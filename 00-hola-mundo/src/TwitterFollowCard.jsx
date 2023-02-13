@@ -1,14 +1,24 @@
-import { render } from "react-dom"
+import { useState } from "react"
 
-export function TwitterFollowCard ({ userName, name, isFollowing }){
+export function TwitterFollowCard ({ userName, name }){
+    const [isFollowing, setIsFollowing] = useState(false)        
     
     //const imageSrc =("https://unavatar.io/${userName}")
+    const texto = isFollowing ? 'Siguiendo' : 'Seguir'
+    const buttonClassName =  isFollowing ? 'tw--sinseguir tw--seguido' : 'tw--sinseguir'
+
+    const handleClick = () =>{
+        setIsFollowing(!isFollowing)
+    }
+    console.log(isFollowing)
     return(
         <article>
             <header>
-                {/* console.log('https://unavatar.io/${userName}') */}
+                {
+                console.log({userName})
+                }
                 <img alt= 'No se carga la imagen'
-                src= {'https://unavatar.io/${userName}'}  />
+                src= { 'https://unavatar.io/{userName}' }  />
                 <div>
                     <strong>{name}</strong>
                     <span>@{userName}</span>
@@ -16,8 +26,8 @@ export function TwitterFollowCard ({ userName, name, isFollowing }){
             </header>
 
             <aside>
-                <button>
-                    Seguir
+                <button className={buttonClassName} onClick={handleClick}>
+                    {texto}
                 </button>
             </aside>
         </article>
